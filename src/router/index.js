@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import Booklist from '../views/BookList.vue'
 import Users from '../views/Users.vue'
+import SingleUser from '../views/SingleUser.vue'
 
 Vue.use(VueRouter)
 
@@ -12,9 +14,19 @@ const routes = [
     component: Home
   },
   {
+    path: '/booklist',
+    name: 'BookList',
+    component: Booklist
+  },
+  {
     path: '/users',
     name: 'Users',
     component: Users
+  },
+  {
+    path: '/singleuser/:id',
+    name: 'SingleUser',
+    component: SingleUser
   },
   {
     path: '/about',

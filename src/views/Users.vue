@@ -1,120 +1,240 @@
 <template>
-    <div>
-       <h1>Users</h1>
-        <v-data-table
+  
+  <v-card>
+    <div id="modal">  
+      <v-icon large  id="exit" @click="closeModal">mdi-window-close</v-icon>
+      <div id="modal-inner"></div>
+    </div>
+      <h1>Users</h1>
+      <v-card-title>
+        User List
+        <v-spacer></v-spacer>
+        <v-text-field
+          v-model="search"
+          append-icon="mdi-magnify"
+          label="Search"
+          single-line
+          hide-details
+        ></v-text-field>
+      </v-card-title>
+      <v-data-table class="row-pointer"
+        @click:row="handleRowClick"
         :headers="headers"
-        :items="desserts"
-        :items-per-page="5"
-        class="elevation-1"
-    ></v-data-table>
-</div>
+        :items="users"
+        :search="search"
+        
+      ></v-data-table>
+    </v-card>
 </template>
-
 <script>
+
+
+
 export default {
-    name: 'Users',
-    data() {
-        return {
-            headers: [
+  methods: {
+      handleRowClick(item) {
+        let e = document.getElementById('modal-inner');
+        let m = document.getElementById('modal');
+        m.style.display = "block";
+        console.log(item);
+        e.innerHTML = item.name;
+      },
+      closeModal() {
+      let m = document.getElementById('modal');
+        m.style.display = "none";
+    }
+    },
+    data: function() {
+      return {
+        search: '',
+        headers: [
           {
-            text: 'Dessert (100g serving)',
+            text: 'Name',
             align: 'start',
             sortable: false,
             value: 'name',
           },
-          { text: 'Calories', value: 'calories' },
-          { text: 'Fat (g)', value: 'fat' },
-          { text: 'Carbs (g)', value: 'carbs' },
-          { text: 'Protein (g)', value: 'protein' },
-          { text: 'Iron (%)', value: 'iron' },
+          { text: 'Member ID', value: 'id' },
+          { text: 'Course', value: 'course' },
+          { text: 'Student ID', value: 'studentId' },
+          { text: 'Email', value: 'email' },
+          { text: 'Phone', value: 'phone' },
+          { text: 'Admission Year', value: 'admissionYear' },
+          { text: 'Address', value: 'address' },
         ],
-        desserts: [
+        users: [
           {
-            name: 'Frozen Yogurt',
-            calories: 159,
-            fat: 6.0,
-            carbs: 24,
-            protein: 4.0,
-            iron: '1%',
+            name: 'Petar Petrovic',
+            id: 1,
+            course: 'IT',
+            studentId: 'IT032',
+            email: 'petar@gmail.com',
+            phone: '0635544332',
+            admissionYear: '2019',
+            address: 'Radnicka 20',
+          },
+            {
+            name: 'Petar Petrovic',
+            id: 2,
+            course: 'IT',
+            studentId: 'IT032',
+            email: 'petar@gmail.com',
+            phone: '0635544332',
+            admissionYear: '2019',
+            address: 'Radnicka 20',
           },
           {
-            name: 'Ice cream sandwich',
-            calories: 237,
-            fat: 9.0,
-            carbs: 37,
-            protein: 4.3,
-            iron: '1%',
+            name: 'Petar Petrovic',
+            id: 3,
+            course: 'IT',
+            studentId: 'IT032',
+            email: 'petar@gmail.com',
+            phone: '0635544332',
+            admissionYear: '2019',
+            address: 'Radnicka 20',
           },
           {
-            name: 'Eclair',
-            calories: 262,
-            fat: 16.0,
-            carbs: 23,
-            protein: 6.0,
-            iron: '7%',
+            name: 'Petar Petrovic',
+            id: 4,
+            course: 'IT',
+            studentId: 'IT032',
+            email: 'petar@gmail.com',
+            phone: '0635544332',
+            admissionYear: '2019',
+            address: 'Radnicka 20',
           },
           {
-            name: 'Cupcake',
-            calories: 305,
-            fat: 3.7,
-            carbs: 67,
-            protein: 4.3,
-            iron: '8%',
+            name: 'Petar Petrovic',
+            id: '5',
+            course: 'IT',
+            studentId: 'IT032',
+            email: 'petar@gmail.com',
+            phone: '0635544332',
+            admissionYear: '2019',
+            address: 'Radnicka 20',
           },
           {
-            name: 'Gingerbread',
-            calories: 356,
-            fat: 16.0,
-            carbs: 49,
-            protein: 3.9,
-            iron: '16%',
+            name: 'Petar Petrovic',
+            id: '6',
+            course: 'IT',
+            studentId: 'IT032',
+            email: 'petar@gmail.com',
+            phone: '0635544332',
+            admissionYear: '2019',
+            address: 'Radnicka 20',
           },
           {
-            name: 'Jelly bean',
-            calories: 375,
-            fat: 0.0,
-            carbs: 94,
-            protein: 0.0,
-            iron: '0%',
+            name: 'Petar Petrovic',
+            id: '7',
+            course: 'IT',
+            studentId: 'IT032',
+            email: 'petar@gmail.com',
+            phone: '0635544332',
+            admissionYear: '2019',
+            address: 'Radnicka 20',
           },
           {
-            name: 'Lollipop',
-            calories: 392,
-            fat: 0.2,
-            carbs: 98,
-            protein: 0,
-            iron: '2%',
+            name: 'Petar Petrovic',
+            id: '8',
+            course: 'IT',
+            studentId: 'IT032',
+            email: 'petar@gmail.com',
+            phone: '0635544332',
+            admissionYear: '2019',
+            address: 'Radnicka 20',
           },
           {
-            name: 'Honeycomb',
-            calories: 408,
-            fat: 3.2,
-            carbs: 87,
-            protein: 6.5,
-            iron: '45%',
+            name: 'Petar Petrovic',
+            id: '9',
+            course: 'IT',
+            studentId: 'IT032',
+            email: 'petar@gmail.com',
+            phone: '0635544332',
+            admissionYear: '2019',
+            address: 'Radnicka 20',
           },
           {
-            name: 'Donut',
-            calories: 452,
-            fat: 25.0,
-            carbs: 51,
-            protein: 4.9,
-            iron: '22%',
+            name: 'Petar Petrovic',
+            id: '10',
+            course: 'IT',
+            studentId: 'IT032',
+            email: 'petar@gmail.com',
+            phone: '0635544332',
+            admissionYear: '2019',
+            address: 'Radnicka 20',
           },
           {
-            name: 'KitKat',
-            calories: 518,
-            fat: 26.0,
-            carbs: 65,
-            protein: 7,
-            iron: '6%',
+            name: 'Petar Petrovic',
+            id: '11',
+            course: 'IT',
+            studentId: 'IT032',
+            email: 'petar@gmail.com',
+            phone: '0635544332',
+            admissionYear: '2019',
+            address: 'Radnicka 20',
+          },
+          {
+            name: 'Petar Petrovic',
+            id: '12',
+            course: 'IT',
+            studentId: 'IT032',
+            email: 'petar@gmail.com',
+            phone: '0635544332',
+            admissionYear: '2019',
+            address: 'Radnicka 20',
+          },
+          {
+            name: 'Petar Petrovic',
+            id: '13',
+            course: 'IT',
+            studentId: 'IT032',
+            email: 'petar@gmail.com',
+            phone: '0635544332',
+            admissionYear: '2019',
+            address: 'Radnicka 20',
+          },
+          {
+            name: 'Petar Petrovic',
+            id: '14',
+            course: 'IT',
+            studentId: 'IT032',
+            email: 'petar@gmail.com',
+            phone: '0635544332',
+            admissionYear: '2019',
+            address: 'Radnicka 20',
           },
         ],
-        }
+      }
     }
 }
 </script>
 
-<style>
+<style scoped>
+#modal {
+  display: none;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute !important;
+  z-index: 3;
+  margin-top: 64px;
+}
+#modal-inner {
+  width: 80%;
+  margin: auto;
+  background-color: white;
+  height: 80vh;
+  margin-top: 10vh;
+}
+#exit {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    cursor: pointer;
+    color: white;
+}
+.row-pointer >>> tbody tr :hover {
+  cursor: pointer;
+}
 
 </style>

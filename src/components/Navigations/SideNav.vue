@@ -49,7 +49,7 @@
       return {
         items: [
           { title: 'Dashboard', icon: 'mdi-view-dashboard', route: '/' },
-          { title: 'Library', icon: 'mdi-book-multiple' },
+          { title: 'Library', icon: 'mdi-book-multiple', route: '/booklist' },
           { title: 'Users', icon: 'mdi-account-multiple', route: '/users' },
         ],
         right: null,
